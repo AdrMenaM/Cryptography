@@ -1,0 +1,81 @@
+<!--AESCrypt v1.0 Adrian Mena Manciati adrmenam
+    03-10-2015
+-->
+
+<html>
+
+   <head>
+      
+      <link rel="stylesheet" href="main.css">
+      
+       <script src="rollups/aes.js"></script>
+       <script>
+            function encrypt()
+            {
+                var encrypted=CryptoJS.AES.encrypt(document.getElementById("entrada").value,document.getElementById("password").value);
+                var div= document.getElementById("salida");
+                div.textContent=encrypted;
+            }
+           
+            function decrypt()
+            {
+                var decrypted = CryptoJS.AES.decrypt(document.getElementById("entrada").value,                           document.getElementById("password").value).toString(CryptoJS.enc.Utf8);
+                
+                if(decrypted!=""){
+                   var div= document.getElementById("salida");
+                   div.textContent=decrypted; 
+                }
+                else{
+                    
+                    alert("Texto o password incorrectos!");
+                    
+                }
+                
+            }
+       
+       </script>
+       
+      
+        
+       
+   </head>
+    
+    <body>
+       
+       
+       <title>AESCrypt</title>
+       
+       <div id="main">
+            <h1>AESCrypt v1.0</h1>
+               <br>
+       
+       
+       <h5>Ingrese el texto a encriptar:</h5>
+       <input type="text" id="entrada" value="" size="24" />
+           <br>
+       <h5>Password:</h5>
+       <input type="password" id="password" value="" size="12" />
+           <br>
+           <br>
+           <br>
+           <br>
+       <input type="button" onclick="encrypt()" value="Cifrar" style='width:70px; height:25px'/>
+           <br>
+           <br>
+           
+       <input type="button" onclick="decrypt()" value="Descifrar" style='width:70px; height:25px'/>
+           <br>
+           <br>
+       
+           
+       </div>
+       
+       <br>
+       <br>
+       <div id="salida" value="----------------------------------------"></div>
+        
+        
+    </body>
+        
+                
+</html>

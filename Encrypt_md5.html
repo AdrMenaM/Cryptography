@@ -1,0 +1,54 @@
+<!--Ecrypt v1.0 Adrian Mena Manciati adrmenam 
+    03-10-2015
+-->
+
+<html>
+<head>
+     <script src="rollups/md5.js"></script>
+    <script type="text/javascript">
+        function encrypt() 
+        {
+            
+            var hash = CryptoJS.MD5(document.getElementById("entrada1").value);
+            
+            var div= document.getElementById("mostrar");
+            div.textContent=hash;
+        
+        }
+        
+        function decrypt()
+        {
+            var unhash = CryptoJS.MD5.decrypt(document.getElementById("entrada1").value);
+            var div= document.getElementById("mostrar");
+            div.textContent=unhash;
+        }
+    </script>
+</head>
+
+<body>
+   
+   <title>Ecrypt v1.0</title>
+    
+    <h1>Ecrypt v1.0</h1>
+    
+    <h5>Ingrese el texto a encriptar:</h5>
+    
+    <input type="text" id="entrada1" value="" size="12"/>
+    
+        <br>
+        <br>
+    
+    <input type="button" onclick="encrypt()" >Encriptar</input>
+    
+         <br>
+         <br> 
+     
+    <div id="mostrar"></div>
+    
+   
+
+    
+</body>
+
+</html>
+
